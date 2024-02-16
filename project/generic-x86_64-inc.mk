@@ -26,10 +26,14 @@ TRUSTY_USER_ARCH := x86
 # Limit heap grows
 GLOBAL_DEFINES += HEAP_GROW_SIZE=8192
 
+# Use lk libc in the kernel for now. musl does not currently link
+LK_LIBC_IMPLEMENTATION := lk
+
 WITH_TRUSTY_VIRTIO_IPC_DEV ?= false
 
 MODULES += \
 	trusty/kernel/lib/trusty \
+	trusty/kernel/services/apploader \
 
 #
 ## user tasks to be compiled into lk.bin
@@ -44,6 +48,7 @@ TRUSTY_BUILTIN_USER_TASKS := \
 	trusty/user/app/keymaster \
 	trusty/user/app/sample/hwcrypto \
 	trusty/user/app/storage \
+	trusty/user/base/app/apploader \
 
 WITH_TRUSTY_IPC := true
 
