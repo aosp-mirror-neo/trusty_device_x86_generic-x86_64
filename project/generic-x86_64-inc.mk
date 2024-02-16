@@ -26,6 +26,25 @@ TRUSTY_USER_ARCH := x86
 # Limit heap grows
 GLOBAL_DEFINES += HEAP_GROW_SIZE=8192
 
+WITH_TRUSTY_VIRTIO_IPC_DEV ?= false
+
+MODULES += \
+	trusty/kernel/lib/trusty \
+
+#
+## user tasks to be compiled into lk.bin
+#
+
+## prebuilt
+TRUSTY_PREBUILT_USER_TASKS :=
+
+# compiled from source
+TRUSTY_BUILTIN_USER_TASKS := \
+	trusty/user/app/gatekeeper \
+	trusty/user/app/keymaster \
+	trusty/user/app/sample/hwcrypto \
+	trusty/user/app/storage \
+
 WITH_TRUSTY_IPC := true
 
 # On generic-x86_64 hwcrypto requires FAKE HWRNG and HWKEY services
