@@ -26,6 +26,39 @@ TRUSTY_USER_ARCH := x86
 # Limit heap grows
 GLOBAL_DEFINES += HEAP_GROW_SIZE=8192
 
+# Use lk libc in the kernel for now. musl does not currently link
+LK_LIBC_IMPLEMENTATION := lk
+
+WITH_TRUSTY_VIRTIO_IPC_DEV ?= false
+
+# Derive RPMB key using HKDF
+WITH_HKDF_RPMB_KEY ?= true
+
+# Always allow provisioning for emulator builds
+STATIC_SYSTEM_STATE_FLAG_PROVISIONING_ALLOWED := 1
+
+MODULES += \
+	trusty/kernel/lib/trusty \
+	trusty/kernel/services/apploader \
+
+#
+## user tasks to be compiled into lk.bin
+#
+
+## prebuilt
+TRUSTY_PREBUILT_USER_TASKS :=
+
+# compiled from source
+TRUSTY_BUILTIN_USER_TASKS := \
+	trusty/user/app/gatekeeper \
+	trusty/user/app/keymaster \
+	trusty/user/app/sample/hwaes \
+	trusty/user/app/sample/hwbcc \
+	trusty/user/app/sample/hwcrypto \
+	trusty/user/app/storage \
+	trusty/user/base/app/apploader \
+	trusty/user/base/app/system_state_server_static \
+
 WITH_TRUSTY_IPC := true
 
 # On generic-x86_64 hwcrypto requires FAKE HWRNG and HWKEY services
