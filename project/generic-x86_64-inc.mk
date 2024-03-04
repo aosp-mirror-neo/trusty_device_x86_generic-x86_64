@@ -64,6 +64,7 @@ WITH_TRUSTY_IPC := true
 # On generic-x86_64 hwcrypto requires FAKE HWRNG and HWKEY services
 WITH_FAKE_HWRNG ?= true
 WITH_FAKE_HWKEY ?= true
+WITH_FAKE_KEYBOX ?= true
 
 ASLR ?= false
 
