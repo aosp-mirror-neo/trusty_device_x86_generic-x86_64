@@ -37,6 +37,9 @@ WITH_HKDF_RPMB_KEY ?= true
 # Always allow provisioning for emulator builds
 STATIC_SYSTEM_STATE_FLAG_PROVISIONING_ALLOWED := 1
 
+# Enable Secure Storage AIDL interface
+STORAGE_AIDL_ENABLED ?= true
+
 MODULES += \
 	trusty/kernel/lib/trusty \
 	trusty/kernel/services/apploader \
@@ -55,6 +58,7 @@ TRUSTY_BUILTIN_USER_TASKS := \
 	trusty/user/app/sample/hwaes \
 	trusty/user/app/sample/hwbcc \
 	trusty/user/app/sample/hwcrypto \
+	trusty/user/app/sample/hwcryptohal/server/app \
 	trusty/user/app/storage \
 	trusty/user/base/app/apploader \
 	trusty/user/base/app/system_state_server_static \
