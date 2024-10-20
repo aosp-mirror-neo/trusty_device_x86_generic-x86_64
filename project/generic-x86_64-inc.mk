@@ -23,6 +23,16 @@ WITH_LINKER_GC := 1
 
 TRUSTY_USER_ARCH := x86
 
+# enable LTO in user-tasks modules
+USER_LTO_ENABLED ?= true
+
+# enable LTO in kernel modules
+KERNEL_LTO_ENABLED ?= true
+
+# enable cfi in trusty modules
+USER_CFI_ENABLED ?= true
+KERNEL_CFI_ENABLED ?= true
+
 # Limit heap grows
 GLOBAL_DEFINES += HEAP_GROW_SIZE=8192
 
