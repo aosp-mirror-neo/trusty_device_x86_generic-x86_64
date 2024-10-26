@@ -50,6 +50,9 @@ STATIC_SYSTEM_STATE_FLAG_PROVISIONING_ALLOWED := 1
 # Enable Secure Storage AIDL interface
 STORAGE_AIDL_ENABLED ?= true
 
+# Non-secure KeyMint Trusty VM is used on x86_64 / cuttlefish
+KEYMINT_TRUSTY_VM ?= nonsecure
+
 MODULES += \
 	trusty/kernel/lib/trusty \
 	trusty/kernel/services/apploader \
