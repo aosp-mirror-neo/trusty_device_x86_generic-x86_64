@@ -23,6 +23,16 @@ WITH_LINKER_GC := 1
 
 TRUSTY_USER_ARCH := x86
 
+# enable LTO in user-tasks modules
+USER_LTO_ENABLED ?= true
+
+# enable LTO in kernel modules
+KERNEL_LTO_ENABLED ?= true
+
+# enable cfi in trusty modules
+USER_CFI_ENABLED ?= true
+KERNEL_CFI_ENABLED ?= true
+
 # Limit heap grows
 GLOBAL_DEFINES += HEAP_GROW_SIZE=8192
 
@@ -36,6 +46,12 @@ WITH_HKDF_RPMB_KEY ?= true
 
 # Always allow provisioning for emulator builds
 STATIC_SYSTEM_STATE_FLAG_PROVISIONING_ALLOWED := 1
+
+# Enable Secure Storage AIDL interface
+STORAGE_AIDL_ENABLED ?= true
+
+# Non-secure KeyMint Trusty VM is used on x86_64 / cuttlefish
+KEYMINT_TRUSTY_VM ?= nonsecure
 
 MODULES += \
 	trusty/kernel/lib/trusty \
@@ -55,6 +71,7 @@ TRUSTY_BUILTIN_USER_TASKS := \
 	trusty/user/app/sample/hwaes \
 	trusty/user/app/sample/hwbcc \
 	trusty/user/app/sample/hwcrypto \
+	trusty/user/app/sample/hwcryptohal/server/app \
 	trusty/user/app/storage \
 	trusty/user/base/app/apploader \
 	trusty/user/base/app/system_state_server_static \

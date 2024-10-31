@@ -16,7 +16,14 @@
 RELEASE_BUILD ?= false
 
 include project/generic-x86_64-inc.mk
+include frameworks/native/libs/binder/trusty/usertests-inc.mk
 include trusty/kernel/kerneltests-inc.mk
 include trusty/user/base/usertests-inc.mk
+include trusty/user/base/usertests-rust-inc.mk
+
+WITH_HWCRYPTO_UNITTEST := 1
+
+# Enable hwcrypto unittest keyslots and tests
+GLOBAL_USER_COMPILEFLAGS += -DWITH_HWCRYPTO_UNITTEST=$(WITH_HWCRYPTO_UNITTEST)
 
 TEST_BUILD := true
