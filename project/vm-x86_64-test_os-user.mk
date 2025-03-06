@@ -13,4 +13,4 @@
 # limitations under the License.
 #
 
-include project/vm-arm64-test_os-inc.mk
+include project/vm-x86_64-test_os-inc.mk
