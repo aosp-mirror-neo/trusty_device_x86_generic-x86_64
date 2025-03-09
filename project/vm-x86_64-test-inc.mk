@@ -17,7 +17,7 @@ WITH_FAKE_HWRNG ?= false
 WITH_FAKE_HWKEY ?= false
 WITH_FAKE_KEYBOX ?= false
 
-include project/generic-x86_64-test-inc.mk
+include project/generic-x86_64-inc.mk
 
 #
 # overwrite list of TAs
