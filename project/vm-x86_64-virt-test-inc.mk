@@ -14,5 +14,5 @@
 #
 
 include project/generic-x86_64-virt-inc.mk
-include project/generic-x86_65_test-inc.mk
+include project/generic-x86_64_test-inc.mk
 
