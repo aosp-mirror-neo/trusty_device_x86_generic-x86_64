@@ -21,4 +21,4 @@ RELEASE_BUILD ?= false
 # If SYMTAB_ENABLED is true: do not strip symbols from the resulting app binary
 SYMTAB_ENABLED ?= true
 
-include project/vm-arm64-test-inc.mk
+include project/vm-x86_64-test-inc.mk
