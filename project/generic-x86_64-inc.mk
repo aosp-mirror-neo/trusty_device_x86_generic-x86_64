@@ -56,6 +56,7 @@ KEYMINT_TRUSTY_VM ?= nonsecure
 MODULES += \
 	trusty/kernel/lib/trusty \
 	trusty/kernel/services/apploader \
+	trusty/kernel/services/hwrng \
 
 #
 ## user tasks to be compiled into lk.bin
